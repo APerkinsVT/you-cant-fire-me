@@ -7,7 +7,7 @@ export function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Flame className="h-8 w-8 text-orange-500" />
-          <span className="text-2xl font-bold text-gray-900">YouCantFireMe.com</span>
+          <span className="text-2xl font-bold text-gray-900">YouCantFireMe.co</span>
         </div>
         <Button variant="outline" className="hidden sm:inline-flex bg-transparent">
           How It Works
