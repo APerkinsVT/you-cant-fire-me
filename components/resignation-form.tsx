@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -27,44 +26,25 @@ export function ResignationForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    
-  try {
-  const letter = await generateResignationLetter(formData);
-  setGeneratedLetter(letter);
 
-  // Send form data + letter to Make.com
-  await fetch("https://hook.us2.make.com/nh1h339uew28qs7jivuja70ju3rxtfz4", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      ...formData,
-      resignation_letter: letter,
-      timestamp: new Date().toISOString(),
-      submission_id: crypto.randomUUID(),
-    }),
-  });
-
-  toast({
-    title: "Letter Generated!",
-    description: "Your hilarious resignation letter is ready!",
-  });
-} catch (error) {
-  toast({
-    title: "Error",
-    description: "Failed to generate letter. Please try again.",
-    variant: "destructive",
-  });
-} finally {
-  setIsLoading(false);
-}
-
-    
-{/*
     try {
       const letter = await generateResignationLetter(formData)
       setGeneratedLetter(letter)
+
+      // 🔁 Send data to Make.com webhook
+      await fetch("https://hook.us2.make.com/nh1h339uew28qs7jivuja70ju3rxtfz4", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          resignation_letter: letter,
+          timestamp: new Date().toISOString(),
+          submission_id: crypto.randomUUID(),
+        }),
+      })
+
       toast({
         title: "Letter Generated!",
         description: "Your hilarious resignation letter is ready!",
@@ -79,9 +59,7 @@ export function ResignationForm() {
       setIsLoading(false)
     }
   }
-*/}
 
-    
   const copyToClipboard = () => {
     navigator.clipboard.writeText(generatedLetter)
     toast({
