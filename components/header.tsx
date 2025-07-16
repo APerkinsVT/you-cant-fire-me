@@ -9,9 +9,13 @@ export function Header() {
           <Flame className="h-8 w-8 text-orange-500" />
           <span className="text-2xl font-bold text-gray-900">YouCantFireMe.co</span>
         </div>
+
+        {/*
         <Button variant="outline" className="hidden sm:inline-flex bg-transparent">
           How It Works
         </Button>
+        */}
+        
       </div>
     </header>
   )
