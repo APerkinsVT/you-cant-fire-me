@@ -43,6 +43,8 @@ export function ResignationForm() {
     try {
       const letter = await generateResignationLetter(formData)
       setGeneratedLetter(letter)
+      const id = crypto.randomUUID()
+      setSubmissionId(id)
 
       // 🔁 Send data to Make.com webhook
       await fetch("https://hook.us2.make.com/nh1h339uew28qs7jivuja70ju3rxtfz4", {
@@ -54,7 +56,7 @@ export function ResignationForm() {
           ...formData,
           resignation_letter: letter,
           timestamp: new Date().toISOString(),
-          submission_id: crypto.randomUUID(),
+          submission_id: id,
         }),
       })
 
