@@ -242,24 +242,52 @@ export function ResignationForm() {
                       Copy
                     </Button>
 
-                    <Button onClick={downloadLetter} variant="outline" className="flex-1 bg-transparent">
+                    <Button
+                      onClick={() => {
+                        downloadLetter()
+                        trackShareClick("download")
+                      }}
+                      variant="outline"
+                      className="flex-1 bg-transparent"
+                    >
                       <Download className="mr-2 h-4 w-4" />
                       Download
-                    </Button>
+                    </Button>                 
                   </div>
                   <div className="mt-4 flex gap-2 justify-center">
-                    <TwitterShareButton url="https://youcantfireme.co" title="I just used AI to write my resignation letter. Brutal. 😂">
+                    <TwitterShareButton
+                      url="https://youcantfireme.co"
+                      title="I just used AI to write my resignation letter. Brutal. 😂"
+                      onClick={() => trackShareClick("twitter")}
+                    >
                       <TwitterIcon size={24} round />
                     </TwitterShareButton>
-                    <RedditShareButton url="https://youcantfireme.co" title="I just used AI to write my resignation letter. Brutal. 😂">
+                    
+                    <RedditShareButton
+                      url="https://youcantfireme.co"
+                      title="Check out this AI-generated resignation letter. 😳"
+                      onClick={() => trackShareClick("reddit")}
+                    >
                       <RedditIcon size={24} round />
                     </RedditShareButton>
-                    <LinkedinShareButton url="https://youcantfireme.co" title="Quit with flair. I just used AI to resign.">
+                    
+                    <LinkedinShareButton
+                      url="https://youcantfireme.co"
+                      title="Quit with flair. I just used AI to resign."
+                      onClick={() => trackShareClick("linkedin")}
+                    >
                       <LinkedinIcon size={24} round />
                     </LinkedinShareButton>
-                    <FacebookShareButton url="https://youcantfireme.co" quote="AI just helped me quit my job. This is hilarious.">
+                    
+                    <FacebookShareButton
+                      url="https://youcantfireme.co"
+                      quote="AI helped me quit my job. This is hilarious."
+                      onClick={() => trackShareClick("facebook")}
+                    >
                       <FacebookIcon size={24} round />
                     </FacebookShareButton>
+
+                    
                   </div>
                 </div>
               ) : (
