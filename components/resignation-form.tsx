@@ -230,10 +230,18 @@ export function ResignationForm() {
                     <pre className="whitespace-pre-wrap text-sm font-mono">{generatedLetter}</pre>
                   </div>
                   <div className="flex gap-2">
-                    <Button onClick={copyToClipboard} variant="outline" className="flex-1 bg-transparent">
+                    <Button
+                      onClick={() => {
+                        copyToClipboard()
+                        trackShareClick("copy")
+                      }}
+                      variant="outline"
+                      className="flex-1 bg-transparent"
+                    >
                       <Copy className="mr-2 h-4 w-4" />
                       Copy
                     </Button>
+
                     <Button onClick={downloadLetter} variant="outline" className="flex-1 bg-transparent">
                       <Download className="mr-2 h-4 w-4" />
                       Download
