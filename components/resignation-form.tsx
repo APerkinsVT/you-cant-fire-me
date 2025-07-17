@@ -210,6 +210,20 @@ export function ResignationForm() {
                       Download
                     </Button>
                   </div>
+                  <div className="mt-4 flex gap-4 justify-center">
+                    <TwitterShareButton url="https://youcantfireme.co" title="I just used AI to write my resignation letter. Brutal. 😂">
+                      <TwitterIcon size={32} round />
+                    </TwitterShareButton>
+                    <RedditShareButton url="https://youcantfireme.co" title="I just used AI to write my resignation letter. Brutal. 😂">
+                      <RedditIcon size={32} round />
+                    </RedditShareButton>
+                    <LinkedinShareButton url="https://youcantfireme.co" title="Quit with flair. I just used AI to resign.">
+                      <LinkedinIcon size={32} round />
+                    </LinkedinShareButton>
+                    <FacebookShareButton url="https://youcantfireme.co" quote="AI just helped me quit my job. This is hilarious.">
+                      <FacebookIcon size={32} round />
+                    </FacebookShareButton>
+                  </div>
                 </div>
               ) : (
                 <div className="text-center py-12 text-gray-500">
