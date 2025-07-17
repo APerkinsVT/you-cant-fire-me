@@ -93,6 +93,31 @@ export function ResignationForm() {
     document.body.removeChild(element)
   }
 
+  const trackShareClick = async (action: string) => {
+    try {
+      await fetch("https://hook.us2.make.com/nh1h339uew28qs7jivuja70ju3rxtfz4", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          submission_id: submissionId,
+          action,
+          timestamp: new Date().toISOString()
+        }),
+      })
+    } catch (error) {
+      console.error("Tracking failed:", error)
+    }
+  }
+
+
+
+
+
+
+
+
+  
   return (
     <section id="resignation-form" className="py-20 px-4">
       <div className="container mx-auto max-w-4xl">
