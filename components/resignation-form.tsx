@@ -33,6 +33,8 @@ export function ResignationForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [generatedLetter, setGeneratedLetter] = useState("")
   const { toast } = useToast()
+  const [submissionId, setSubmissionId] = useState("")
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
