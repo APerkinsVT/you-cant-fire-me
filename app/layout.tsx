@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Generate hilarious AI resignation letters instantly.',
   generator: 'YouCantFireMe',
   icons: '/favicon.ico'
-  },
+  }
 }
 
 export default function RootLayout({
