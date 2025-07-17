@@ -1,5 +1,16 @@
 "use client"
 
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  RedditShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  RedditIcon
+} from "react-share"
+
 import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
