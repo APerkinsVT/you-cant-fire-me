@@ -286,9 +286,22 @@ export function ResignationForm() {
                     >
                       <FacebookIcon size={24} round />
                     </FacebookShareButton>
-
-                    
                   </div>
+                  <div className="mt-4 flex items-center space-x-1">
+                    {/* Star rating buttons */}
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        onClick={() => handleRating(star)}
+                        className="text-yellow-400 hover:scale-110 transition-transform"
+                      >
+                        {star <= rating ? "★" : "☆"}
+                      </button>
+                    ))}
+                  </div>
+
+
+                  
                 </div>
               ) : (
                 <div className="text-center py-12 text-gray-500">
