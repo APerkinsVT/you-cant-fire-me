@@ -210,7 +210,7 @@ export function ResignationForm() {
                       Download
                     </Button>
                   </div>
-                  <div className="mt-4 flex gap-4 justify-center">
+                  <div className="mt-4 flex gap-4 justify-center bg-red-100 border border-red-500 p-4 rounded">
                     <TwitterShareButton url="https://youcantfireme.co" title="I just used AI to write my resignation letter. Brutal. 😂">
                       <TwitterIcon size={32} round />
                     </TwitterShareButton>
