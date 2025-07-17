@@ -5,8 +5,7 @@ export const metadata: Metadata = {
   title: 'YouCantFireMe.co',
   description: 'Generate hilarious AI resignation letters instantly.',
   generator: 'YouCantFireMe',
-  icons: {
-    icon: "/public/favicon.ico",
+  icons: '/favicon.ico', // Simple single favicon
   },
 }
 
