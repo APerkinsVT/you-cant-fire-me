@@ -35,6 +35,30 @@ export function ResignationForm() {
   const { toast } = useToast()
   const [submissionId, setSubmissionId] = useState("")
 
+  const [rating, setRating] = useState<number | null>(null);
+
+  const handleRating = async (value: number) => {
+  setRating(value);
+
+  try {
+    await fetch("https://hook.us2.make.com/nh1h339uew28qs7jivuja70ju3rxtfz4", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: formData.email,
+        submission_id: submissionId,
+        action: "rating",
+        rating: value,
+        timestamp: new Date().toISOString(),
+      }),
+    });
+  } catch (error) {
+    console.error("Error sending rating:", error);
+  }
+};
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
