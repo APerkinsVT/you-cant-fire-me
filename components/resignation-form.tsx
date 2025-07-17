@@ -311,7 +311,7 @@ export function ResignationForm() {
                       <FacebookIcon size={24} round />
                     </FacebookShareButton>
                   </div>
-                  <div className="mt-4 flex items-center space-x-1">
+                  <div className="mt-4 flex justify-center items-center space-x-1">
                     {/* Star rating buttons */}
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
