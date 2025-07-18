@@ -38,8 +38,9 @@ export function ResignationForm() {
   const [rating, setRating] = useState<number | null>(null);
 
   const handleRating = async (value: number) => {
-  setRating(value);
-
+    if (rating !== null) return; // prevents multiple votes
+    setRating(value);
+  
   try {
     await fetch("https://hook.us2.make.com/nh1h339uew28qs7jivuja70ju3rxtfz4", {
       method: "POST",
@@ -311,19 +312,18 @@ export function ResignationForm() {
                       <FacebookIcon size={24} round />
                     </FacebookShareButton>
                   </div>
-                  <div className="mt-4 flex justify-center items-center space-x-1">
-                    {/* Star rating buttons */}
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <button
-                        key={star}
-                        onClick={() => handleRating(star)}
-                        className="text-yellow-400 hover:scale-110 transition-transform"
-                      >
-                        {star <= rating ? "★" : "☆"}
-                      </button>
-                    ))}
-                  </div>
 
+                  {rating === null ? (
+                    <div className="mt-4 flex justify-center">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <button key={star} onClick={() => handleRating(star)} /* styling */>
+                          {star <= rating ? "★" : "☆"}
+                        </button>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-center mt-2 text-green-600">Thanks for rating ⭐️ {rating}</p>
+                  )}
 
                   
                 </div>
