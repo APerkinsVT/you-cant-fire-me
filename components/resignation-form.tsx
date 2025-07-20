@@ -320,7 +320,7 @@ export function ResignationForm() {
                         trackShareClick("reddit");
                     
                         if (typeof window !== 'undefined' && typeof gtag === 'function') {
-                          gtag('event', 'twitter_share', {
+                          gtag('event', 'reddit_share', {
                             event_category: 'interaction',
                             event_label: 'Reddit Share Button',
                           });
@@ -333,7 +333,16 @@ export function ResignationForm() {
                     <LinkedinShareButton
                       url="https://youcantfireme.co"
                       title="Quit with flair. I just used AI to resign."
-                      onClick={() => trackShareClick("linkedin")}
+                      onClick={() => {
+                        trackShareClick("linkedin");
+                    
+                        if (typeof window !== 'undefined' && typeof gtag === 'function') {
+                          gtag('event', 'linkedin_share', {
+                            event_category: 'interaction',
+                            event_label: 'LinkedIn Share Button',
+                          });
+                        }
+                      }}
                     >
                       <LinkedinIcon size={24} round />
                     </LinkedinShareButton>
@@ -341,7 +350,16 @@ export function ResignationForm() {
                     <FacebookShareButton
                       url="https://youcantfireme.co"
                       quote="AI helped me quit my job. This is hilarious."
-                      onClick={() => trackShareClick("facebook")}
+                      onClick={() => {
+                        trackShareClick("facebook");
+                    
+                        if (typeof window !== 'undefined' && typeof gtag === 'function') {
+                          gtag('event', 'facebook_share', {
+                            event_category: 'interaction',
+                            event_label: 'Facebook Share Button',
+                          });
+                        }
+                      }}
                     >
                       <FacebookIcon size={24} round />
                     </FacebookShareButton>
