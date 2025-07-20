@@ -316,7 +316,16 @@ export function ResignationForm() {
                     <RedditShareButton
                       url="https://youcantfireme.co"
                       title="Check out this AI-generated resignation letter. 😳"
-                      onClick={() => trackShareClick("reddit")}
+                      onClick={() => {
+                        trackShareClick("reddit");
+                    
+                        if (typeof window !== 'undefined' && typeof gtag === 'function') {
+                          gtag('event', 'twitter_share', {
+                            event_category: 'interaction',
+                            event_label: 'Reddit Share Button',
+                          });
+                        }
+                      }}
                     >
                       <RedditIcon size={24} round />
                     </RedditShareButton>
