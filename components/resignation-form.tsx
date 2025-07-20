@@ -257,8 +257,16 @@ export function ResignationForm() {
                   <div className="flex gap-2">
                     <Button
                       onClick={() => {
-                        copyToClipboard()
-                        trackShareClick("copy")
+                        copyToClipboard();
+                        trackShareClick("copy");
+                    
+                        // Google Analytics tracking
+                        if (typeof window !== 'undefined' && typeof gtag === 'function') {
+                          gtag('event', 'copy_click', {
+                            event_category: 'interaction',
+                            event_label: 'Copy Resignation Letter',
+                          });
+                        }
                       }}
                       variant="outline"
                       className="flex-1 bg-transparent"
