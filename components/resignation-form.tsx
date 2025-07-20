@@ -277,21 +277,38 @@ export function ResignationForm() {
 
                     <Button
                       onClick={() => {
-                        downloadLetter()
-                        trackShareClick("download")
+                        handleDownload(); // your existing function
+                        trackShareClick("download");
+                    
+                        if (typeof window !== 'undefined' && typeof gtag === 'function') {
+                          gtag('event', 'download_click', {
+                            event_category: 'interaction',
+                            event_label: 'Download Resignation Letter',
+                          });
+                        }
                       }}
                       variant="outline"
                       className="flex-1 bg-transparent"
                     >
                       <Download className="mr-2 h-4 w-4" />
                       Download
-                    </Button>                 
+                    </Button>
+                
                   </div>
                   <div className="mt-4 flex gap-2 justify-center">
                     <TwitterShareButton
                       url="https://youcantfireme.co"
                       title="I just used AI to write my resignation letter. Brutal. 😂"
-                      onClick={() => trackShareClick("twitter")}
+                      onClick={() => {
+                        trackShareClick("twitter");
+                    
+                        if (typeof window !== 'undefined' && typeof gtag === 'function') {
+                          gtag('event', 'twitter_share', {
+                            event_category: 'interaction',
+                            event_label: 'Twitter Share Button',
+                          });
+                        }
+                      }}
                     >
                       <TwitterIcon size={24} round />
                     </TwitterShareButton>
