@@ -277,7 +277,7 @@ export function ResignationForm() {
 
                     <Button
                       onClick={() => {
-                        handleDownload(); // your existing function
+                        downloadLetter(); // your existing function
                         trackShareClick("download");
                     
                         if (typeof window !== 'undefined' && typeof gtag === 'function') {
