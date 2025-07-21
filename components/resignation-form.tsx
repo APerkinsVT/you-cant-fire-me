@@ -397,7 +397,24 @@ export function ResignationForm() {
                       href="https://www.buymeacoffee.com/Fuel_My_Exit?amount=3&message=🔥%20Fueling%20the%20exit!"
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => {
+                      onClick={async () => {
+                        // 🔁 Send to Make.com webhook
+                        try {
+                          await fetch("https://hook.us2.make.com/nh1h339uew28qs7jivuja70ju3rxtfz4", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              email: formData.email,
+                              submission_id: submissionId,
+                              action: "bmac_click",
+                              timestamp: new Date().toISOString(),
+                            }),
+                          });
+                        } catch (err) {
+                          console.error("BMAC webhook failed", err);
+                        }
+                      
+                        // 🔎 Google Analytics tracking
                         if (typeof window !== 'undefined' && typeof gtag === 'function') {
                           gtag('event', 'bmac_click', {
                             event_category: 'interaction',
@@ -405,6 +422,7 @@ export function ResignationForm() {
                           });
                         }
                       }}
+
                       className="bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold py-1 px-3 rounded shadow"
                     >
                       ☕ Fuel the Flame ($3)
