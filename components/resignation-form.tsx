@@ -368,7 +368,22 @@ export function ResignationForm() {
                   {rating === null ? (
                     <div className="mt-4 flex justify-center">
                       {[1, 2, 3, 4, 5].map((star) => (
-                        <button key={star} onClick={() => handleRating(star)} /* styling */>
+                        <button
+                          key={star}
+                          onClick={() => {
+                            handleRating(star);
+                  
+                            // GA4 rating event
+                            if (typeof window !== 'undefined' && typeof gtag === 'function') {
+                              gtag('event', 'rating_given', {
+                                value: star,
+                                event_category: 'interaction',
+                                event_label: `Star Rating: ${star}`,
+                              });
+                            }
+                          }}
+                          className="mx-1 text-2xl"
+                        >
                           {star <= rating ? "★" : "☆"}
                         </button>
                       ))}
