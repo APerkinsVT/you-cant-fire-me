@@ -22,22 +22,22 @@ export async function generateResignationLetter(formData: FormData) {
   Situation: ${situation}
   
   The letter should be:
-  - Funny and witty but with a definite edge.
+  - Funny and with a definite edge.
   - Avoid standard phrasing and boilerplate approaches
   - Include dramatic flair and humor
   - Reference the specific situation mentioned
   - Be memorable and entertaining
   - Include informal resignation letter format
   - End on a cheeky note
-  - Keep it short - no more than 100 words
+  - Keep it short - no more than 125 words
   
-  Make it sound like someone who's fed up with the situation but wants to leave with a splash. Don't include cute or predictable puns or overused references to office frustrations. Think of how Stephen Colbert might write.`
+  Make it sound like someone who's fed up with the situation and wants to leave with a splash. Don't include cute or predictable puns or overused references to office frustrations. Think of how Stephen Colbert might write about his recent firing.`
 
   const { text } = await generateText({
     model: openai("gpt-4o"),
     prompt,
     system:
-      "You are a witty and satirical writer who specializes in humorous resignation letters. Your letters are memorable, funny, and irreverent in the vein of Jon Stewart. They help people leave their jobs with style - just ahead of a foreseeable dismissal.",
+      "You are a witty and satirical writer who specializes in humorous resignation letters. Your letters are memorable, funny, sarcastic and irreverent - in the style of Jon Stewart. They help people leave their jobs with a parting shot - just ahead of a foreseeable dismissal.",
   })
 
   return text
