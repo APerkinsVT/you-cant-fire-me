@@ -394,9 +394,17 @@ export function ResignationForm() {
 
                   <div className="mt-6 flex flex-col items-center">
                     <a
-                      href="https://www.buymeacoffee.com/Fuel_My_Exit?amount=1&message=🔥%20Fueling%20the%20exit!"
+                      href="https://www.buymeacoffee.com/Fuel_My_Exit?amount=3&message=🔥%20Fueling%20the%20exit!"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => {
+                        if (typeof window !== 'undefined' && typeof gtag === 'function') {
+                          gtag('event', 'bmac_click', {
+                            event_category: 'interaction',
+                            event_label: 'Buy Me a Coffee Link',
+                          });
+                        }
+                      }}
                       className="bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold py-1 px-3 rounded shadow"
                     >
                       ☕ Fuel the Flame ($3)
