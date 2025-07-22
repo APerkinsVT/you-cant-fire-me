@@ -239,7 +239,7 @@ export function ResignationForm() {
             </CardContent>
           </Card>
 
-          <Card className={generatedLetter ? "border-green-200 bg-green-50" : ""}>
+          <Card className={generatedLetter ? "border-green-200 bg-[#f5f5f5]" : ""}>
             <CardHeader>
               <CardTitle className="flex items-center">Your Epic Resignation Letter</CardTitle>
               <CardDescription>
