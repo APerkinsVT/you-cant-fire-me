@@ -18,7 +18,7 @@ export function Footer() {
 
         {/* Privacy link below */}
         <div className="text-center mt-6">
-          <a href="/privacy" className="text-gray-400 text-xs underline hover:text-white">
+          <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-gray-400 text-xs underline hover:text-white">
             Privacy Policy
           </a>
         </div>
