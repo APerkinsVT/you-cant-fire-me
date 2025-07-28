@@ -27,9 +27,11 @@ export async function generateResignationLetter(formData: FormData) {
   - Include dramatic flair and humor
   - Reference the specific situation mentioned
   - Be memorable and entertaining
-  - Include informal resignation letter format
+  - Use an informal resignation letter format
   - End on a cheeky note
-  - Keep it short - no more than 125 words
+  - Keep your sentences short and punchy - no long-winded declarations!
+  - Keep the letter short - no more than 125-150 words
+  - Write at a High School senior's level
   
   Make it sound like someone who's fed up with the situation and wants to leave with a splash. Don't include cute or predictable puns or overused references to office frustrations. Think of how Stephen Colbert might write about his recent firing.`
 
